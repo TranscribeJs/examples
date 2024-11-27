@@ -22,7 +22,7 @@
     "vite": "^5.0.3"
   },
   "dependencies": {
-    "@transcribe/transcriber": "^2.0.3",
+    "@transcribe/transcriber": "^2.0.4",
     "express": "^4.21.1"
   }
 }

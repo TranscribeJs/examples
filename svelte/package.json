@@ -20,6 +20,6 @@
     "vite": "5.2.11"
   },
   "dependencies": {
-    "@transcribe/transcriber": "^2.0.3"
+    "@transcribe/transcriber": "^2.0.4"
   }
 }

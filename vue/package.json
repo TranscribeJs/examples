@@ -14,7 +14,7 @@
     "postinstall": "cp -r node_modules/@transcribe/shout/src/shout/* public/"
   },
   "dependencies": {
-    "@transcribe/transcriber": "^2.0.3",
+    "@transcribe/transcriber": "^2.0.4",
     "vue": "^3.5.12"
   },
   "devDependencies": {
