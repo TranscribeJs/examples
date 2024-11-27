@@ -20,7 +20,7 @@ npm run preview
 
 ### Import/Bundle
 
-Rollup is not able to bundle `shout.wasm.js`. To work around this we use an `importmap` that loads the module from `/static/shout.wasm.js`
+Rollup is not able to bundle `shout.wasm.js`. To work around this we use an `importmap` that loads the module from `/public/shout.wasm.js`
 
 ```html
 <!-- index.html -->
