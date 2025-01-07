@@ -1,0 +1,16 @@
+<main>
+  <h1>Transcribe.js Angular Example</h1>
+
+  <p>
+    Click the button to transcribe the example wav file. (check console for
+    detailed output)
+  </p>
+
+  @if(isReady) {
+  <button (click)="onClick()">Transcribe</button>
+  } @if(result) {
+  <p><b>Result: </b>{{ result }}</p>
+  }
+</main>
+
+<router-outlet />
