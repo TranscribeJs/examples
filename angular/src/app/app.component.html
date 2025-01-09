@@ -6,8 +6,8 @@
     detailed output)
   </p>
 
-  @if(isReady) {
-  <button (click)="onClick()">Transcribe</button>
+  @if(transcriber.isReady) {
+  <button (click)="transcribe()">Transcribe</button>
   } @if(result) {
   <p><b>Result: </b>{{ result }}</p>
   }

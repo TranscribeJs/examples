@@ -13,7 +13,6 @@ export class AppComponent {
   title = 'angular';
   result = '';
   transcriber: FileTranscriber;
-  isReady = false;
 
   constructor() {
     this.transcriber = new FileTranscriber({
@@ -22,25 +21,21 @@ export class AppComponent {
       workerPath: '/',
     });
 
-    this.initTranscribe();
+    this.transcriber.init();
   }
 
-  async initTranscribe() {
-    await this.transcriber.init();
-    this.isReady = true;
-  }
+  async transcribe() {
+    if (!this.transcriber?.isReady) return;
 
-  async transcribeFile() {
     this.result = 'Transcribing...';
 
+    // transcribe the file
+    // there must be at least one user interaction (e.g click) before you can call this function
     const result = await this.transcriber.transcribe('/jfk.wav', {
       lang: 'en',
     });
 
+    // do something with the result
     this.result = result.transcription.map((t) => t.text).join(' ');
-  }
-
-  onClick() {
-    this.transcribeFile();
   }
 }
