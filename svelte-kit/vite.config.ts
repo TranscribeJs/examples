@@ -15,9 +15,10 @@ export default defineConfig({
     },
     sveltekit(),
   ],
-  build: {
-    rollupOptions: {
-      external: ["/shout.wasm.js?url"],
-    },
+  optimizeDeps: {
+    exclude: ["@transcribe/shout"],
+  },
+  worker: {
+    format: "es",
   },
 });

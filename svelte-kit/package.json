@@ -7,8 +7,7 @@
     "build": "vite build",
     "preview": "node server.js",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "postinstall": "cp -r node_modules/@transcribe/shout/src/shout/* static/"
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
     "@rollup/plugin-replace": "^6.0.1",

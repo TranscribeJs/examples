@@ -20,24 +20,7 @@ npm run preview
 
 ### Import/Bundle
 
-Rollup is not able to bundle `shout.wasm.js`. To work around this we use an `importmap` that loads the module from `/public/shout.wasm.js`
-
-```html
-<!-- index.html -->
-<head>
-  <!-- ... -->
-  <script type="importmap">
-    {
-      "imports": {
-        "@transcribe/shout": "/shout.wasm.js"
-      }
-    }
-  </script>
-  <!-- ... -->
-</head>
-```
-
-and exclude the package from the bundle
+Exclude the wasm package from dependency optimization and set `worker.format: "es"`.
 
 ```js
 // vite.config.ts
@@ -46,10 +29,11 @@ and exclude the package from the bundle
 
 export default defineConfig({
   // ...
-  build: {
-    rollupOptions: {
-      external: ['@transcribe/shout'],
-    },
+  optimizeDeps: {
+    exclude: ['@transcribe/shout'],
+  },
+  worker: {
+    format: 'es',
   },
 })
 ```

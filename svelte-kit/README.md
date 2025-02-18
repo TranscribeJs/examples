@@ -26,25 +26,7 @@ Transcribe.js only runs in the browser. Node.js is not supported. Make sure to r
 
 ### Import/Bundle
 
-Rollup is not able to bundle `shout.wasm.js`. Also using an `importmap` like in Svelte doesn't work. To work around this we use a dynamic import that loads the module from `/static/shout.wasm.js`
-
-```js
-// +page.svelte
-import { onMount } from "svelte";
-import { FileTranscriber } from "@transcribe/transcriber";
-
-let createModule;
-
-// ... use transcriber
-
-onMount(async () => {
-  // dynamic import wasm module from /static
-  // this is a workaround because Rollup can't bundle this file
-  createModule = (await import("/shout.wasm.js?url")).default;
-});
-```
-
-and exclude the import file from the bundle
+Exclude the wasm package from dependency optimization and set `worker.format: "es"`.
 
 ```js
 // vite.config.ts
@@ -53,10 +35,11 @@ and exclude the import file from the bundle
 
 export default defineConfig({
   // ...
-  build: {
-    rollupOptions: {
-      external: ["/shout.wasm.js?url"],
-    },
+  optimizeDeps: {
+    exclude: ["@transcribe/shout"],
+  },
+  worker: {
+    format: "es",
   },
 });
 ```

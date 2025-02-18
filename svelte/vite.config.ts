@@ -4,10 +4,11 @@ import { svelte, vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [svelte()],
-  build: {
-    rollupOptions: {
-      external: ["@transcribe/shout"],
-    },
+  optimizeDeps: {
+    exclude: ["@transcribe/shout"],
+  },
+  worker: {
+    format: "es",
   },
   server: {
     headers: {

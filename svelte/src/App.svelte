@@ -26,7 +26,6 @@
     transcriber = new FileTranscriber({
       createModule,
       model: "/ggml-tiny-q5_1.bin",
-      workerPath: "/",
     });
 
     // and initialize the transcriber
