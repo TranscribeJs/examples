@@ -7,15 +7,16 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue(), vueDevTools()],
-  build: {
-    rollupOptions: {
-      external: ['@transcribe/shout'],
-    },
+  optimizeDeps: {
+    exclude: ['@transcribe/shout'],
   },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
+  },
+  worker: {
+    format: 'es',
   },
   server: {
     headers: {
