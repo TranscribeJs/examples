@@ -5,8 +5,8 @@
 
   let transcriber: FileTranscriber;
 
-  $: isReady = false;
-  $: text = "";
+  let isReady = $state(false);
+  let text = $state("");
 
   async function transcribe() {
     if (!transcriber?.isReady) return;
@@ -43,7 +43,7 @@
   </p>
 
   {#if isReady}
-    <button on:click={transcribe}>Transcribe</button>
+    <button onclick={transcribe}>Transcribe</button>
 
     {#if text}
       <p><b>Result:</b>{text}</p>
