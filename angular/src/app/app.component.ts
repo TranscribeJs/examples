@@ -18,7 +18,6 @@ export class AppComponent {
     this.transcriber = new FileTranscriber({
       createModule,
       model: '/ggml-tiny-q5_1.bin',
-      workerPath: '/',
     });
 
     this.transcriber.init();
