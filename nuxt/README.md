@@ -29,7 +29,7 @@ The wasm files must be served with the correct Cross-Origin headers. Otherwise b
 
 // ...
 
-export default defineConfig({
+export default defineNuxtConfig({
   // ...
   routeRules: {
     "/**": {
